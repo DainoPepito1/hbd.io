@@ -1,0 +1,243 @@
+/* General Styling */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0e6d6;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  overflow: hidden;
+}
+.confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.confetti div {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #f39c12;
+  opacity: 0.8;
+  border-radius: 50%;
+  animation: confetti 6s linear infinite;
+}
+
+.confetti div:nth-child(1) {
+  background-color: #e74c3c;
+  animation-duration: 4s;
+}
+.confetti div:nth-child(2) {
+  background-color: #f39c12;
+  animation-duration: 5s;
+}
+.confetti div:nth-child(3) {
+  background-color: #2ecc71;
+  animation-duration: 6s;
+}
+.confetti div:nth-child(4) {
+  background-color: #3498db;
+  animation-duration: 7s;
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: index 2; /* Behind other elements */
+}
+
+/* School Folder Styling */
+.folder {
+  position: relative;
+  width: 80vw; /* Increased width for better fit on mobile */
+  height: 60vh; /* Adjusted height for better fit on mobile */
+  perspective: 1000px;
+  max-width: 500px;
+  max-height: 600px;
+  background: url("https://www.transparenttextures.com/patterns/light-burlap.png");
+  border-radius: 12px;
+  border: 2px solid #f2a69d;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+.folder-back,
+.folder-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #f9e2b2;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: 2px solid #f2a69d;
+}
+
+.folder-back {
+  z-index: 1;
+}
+
+.folder-front {
+  z-index: 2;
+  transform-origin: left;
+  transition: transform 1s ease;
+}
+.folder.open .folder-front {
+  transform: rotateY(-120deg);
+}
+
+.folder-title {
+  position: absolute;
+  top: 15%; /* Adjusted for better fit */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%; /* Adjusted width for mobile */
+  max-width: 300px; /* Adjusted max-width for mobile */
+  height: auto;
+  z-index: 3;
+}
+
+/* Open Folder Display */
+.folder-open {
+  display: none;
+  position: relative;
+  width: 80%; /* Adjusted width for mobile */
+  height: 60%; /* Adjusted height for mobile */
+  background: url("https://www.transparenttextures.com/patterns/light-burlap.png");
+}
+
+.folder-back-open,
+.folder-front-open {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-color: #f9e2b2;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: 2px solid #f2a69d;
+}
+
+.folder-back-open {
+  z-index: 1;
+  left: 0;
+}
+
+.folder-front-open {
+  z-index: 2;
+  right: 0;
+  transform: rotateY(-360deg);
+  transform-origin: left;
+}
+
+.folder-inside {
+  position: absolute;
+  width: 100%; /* Adjusted width for mobile */
+  height: 100%;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  padding: 20px;
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Georgia", serif;
+  font-size: 1rem; /* Adjusted font size for mobile */
+  color: #e7e7e7;
+  white-space: pre-wrap;
+  overflow: hidden;
+}
+.folder-back::after,
+.folder-front::after {
+  content: "🎈";
+  position: absolute;
+  font-size: 2rem;
+  color: #f2a69d; /* Festive color */
+  bottom: 10px;
+  right: 10px;
+  z-index: 4;
+}
+/* Text Container */
+
+/* Typing Animation */
+/* Text Styling */
+.typing-text {
+  margin: 2vw;
+  font-family: "SUSE", sans-serif;
+  font-size: 1rem; /* Adjusted font size for better readability */
+  color: #252525;
+  white-space: pre-wrap;
+  overflow: hidden;
+  padding-top: 2%;
+}
+
+/* Media query for tablets */
+@media (max-width: 768px) {
+  .folder {
+    width: 70vw; /* Adjusted width for tablets */
+    height: 50vh; /* Adjusted height for tablets */
+  }
+  .folder-title {
+    width: 80%; /* Adjusted width for tablets */
+    max-width: 250px; /* Adjusted max-width for tablets */
+  }
+  .typing-text {
+    font-size: 1rem; /* Keep consistent with the default size */
+  }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 480px) {
+  .folder {
+    width: 90vw; /* Increased width for mobile */
+    height: 45vh; /* Adjusted height for mobile */
+  }
+  .folder-title {
+    width: 90%; /* Adjusted width for mobile */
+    max-width: 200px; /* Adjusted max-width for mobile */
+  }
+  .folder-inside {
+    font-size: 0.9rem; /* Adjusted font size for mobile */
+  }
+  .typing-text {
+    font-size: 0.9rem; /* Adjusted font size for mobile */
+    margin-left: 1vw; /* Adjusted margins for mobile */
+    margin-right: 1vw;
+  }
+}
+
+@media (max-width: 414px) and (orientation: portrait) {
+  .folder {
+    width: 90vw; /* Full width for better fit on iPhone XR */
+    height: 60vh; /* Adjusted height */
+  }
+  .folder-title {
+    width: 85%; /* Adjusted width for better fit */
+    max-width: 200px; /* Adjusted max-width */
+  }
+  .folder-inside {
+    font-size: 0.9rem; /* Adjusted font size for mobile */
+  }
+  .typing-text {
+    font-size: 0.9rem; /* Adjusted font size for mobile */
+    margin-left: 1.5vw; /* Adjusted margins for better fit */
+    margin-right: 1.5vw;
+  }
+}

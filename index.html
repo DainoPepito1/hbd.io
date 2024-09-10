@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="cake.css" />
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <!-- Unopened Folder -->
+    <div class="folder" id="folder" onclick="openFolder()">
+      <div class="folder-back"></div>
+      <div class="folder-front">
+        <img src="design.png" alt="dd" class="folder-title">
+        <img src="happy.png" alt="Happy Birthday" class="folder-title" />
+      </div>
+      
+    </div>
+
+    <!-- Open Folder Display -->
+     
+    <div class="folder-open" id="folderOpen">
+      
+      <div class="folder-back-open">
+        <div class="text">Lagay ka candle at iblow nyahahaha</div>
+        <div class="cake-container">
+          <div class="cake">
+            <div id="candleCount" style="display:none;"></div>
+            <div class="plate"></div>
+            <div class="layer layer-bottom"></div>
+            <div class="layer layer-middle"></div>
+            <div class="layer layer-top"></div>
+            <div class="icing"></div>
+            <div class="drip drip1"></div>
+            <div class="drip drip2"></div>
+            <div class="drip drip3"></div>
+          </div>
+          </div>
+      </div>
+      <div class="folder-front-open">
+         <!-- Animated Text Message -->
+         <div class="text-container">
+          <h3 class="typing-text">
+    
+            Happy 21st Birthday, bebot! 🎉<br>
+            I’m so thankful to have you in my life and to see all the amazing things you’re doing. I love you more than words can say, and I hope your special day is just as incredible as you are! Enjoy your day, Mahal na mahal kita.
+          </h3>
+          <h5 class="typing-text">-BF mong pogi</h5>
+        </div>
+        
+      </div>
+     
+    <audio id="happyBirthday" src="happy-birthday.mp3"></audio>
+    <script src="script.js"></script>
+  </body>
+</html>
